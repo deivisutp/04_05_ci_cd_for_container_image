@@ -55,6 +55,7 @@ jobs:
       - name: Deploy production with aws CLI
         if: ${{ inputs.environment }} == 'Production'
         run: |
+          echo "${{ inputs.environment }}"
           aws apprunner start-deployment --service-arn="${{ vars.SERVICE_ARN }}"
 
       - name: Wait for Deployment to Begin
